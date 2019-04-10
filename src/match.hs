@@ -17,10 +17,11 @@ collect pat text lines
 
 match :: String -> String -> Bool -> String
 match pat text ok
-  | ok && null found= front
-  | not . null $ found = front ++ highlight found ++ match pat rest True
+  | matched = front ++ highlight found ++ match pat rest True
+  | ok = front
   | otherwise = ""
   where (front, found, rest) = text =~ pat :: (String, String, String)
+        matched = not . null $ found
 
 
 highlight :: String -> String
