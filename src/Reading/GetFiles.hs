@@ -7,12 +7,16 @@ import System.Directory (doesDirectoryExist,
 type Recursive = Bool
 
 
-getFiles :: Recursive -> FilePath -> IO [FilePath]
-getFiles rec path = do
+getFiles :: Recursive -> [FilePath] -> IO [FilePath]
+getFiles rec paths = concat <$> mapM (checkFiles rec) paths
+
+
+checkFiles :: Recursive -> FilePath -> IO [FilePath]
+checkFiles rec path = do
                      isFile <- doesFileExist path
                      if isFile
                       then return [path]
-                      else recurse getFiles rec path
+                      else recurse checkFiles rec path
                    
 recurse :: (Recursive -> FilePath -> IO [FilePath]) -> Recursive -> FilePath -> IO [FilePath]
 recurse func rec path = do
