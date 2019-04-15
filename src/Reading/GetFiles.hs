@@ -1,5 +1,6 @@
 module Reading.GetFiles (getFiles) where
 
+import System.FilePath ((</>))
 import System.Directory (doesDirectoryExist,
                          doesFileExist,
                          getDirectoryContents)
@@ -31,7 +32,7 @@ retrieve = getDir (`notElem` [".", ".."])
 
 
 getDir :: (FilePath -> Bool) -> FilePath -> IO [FilePath]
-getDir func path = filter func <$> getDirectoryContents path
+getDir func path = map (path </>) . filter func <$> getDirectoryContents path
 
 
 getFile :: [FilePath] -> IO [FilePath]
