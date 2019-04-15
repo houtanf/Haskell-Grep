@@ -21,7 +21,8 @@ checkFiles rec path = do
                    
 recurse :: (Recursive -> FilePath -> IO [FilePath]) -> Recursive -> FilePath -> IO [FilePath]
 recurse func rec path = do
-                         dir <- retrieve path
+                         isDir <- doesDirectoryExist path
+                         dir <- if isDir then retrieve path else return []
                          if rec
                           then concat <$> mapM (func rec) dir 
                           else getFile dir
