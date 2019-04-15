@@ -1,4 +1,4 @@
-module ReadUtils where
+module Parsing.ReadUtils where
 
 
 appendName :: FilePath -> [String] -> [String]

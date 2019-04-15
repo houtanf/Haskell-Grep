@@ -1,4 +1,4 @@
-module GetFiles (getFiles) where
+module Reading.GetFiles (getFiles) where
 
 import System.Directory (doesDirectoryExist,
                          doesFileExist,

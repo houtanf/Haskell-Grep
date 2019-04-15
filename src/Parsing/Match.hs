@@ -1,4 +1,4 @@
-module Match (matchLines) where
+module Parsing.Match (matchLines) where
 
 import Text.Regex.Posix ((=~))
 import Data.List (foldl')
