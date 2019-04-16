@@ -7,7 +7,7 @@ import Parsing.ReadUtils (appendName)
 import Parsing.Match (matchLines)
 
 import System.Environment (getArgs)
-import qualified Data.ByteString.Lazy.Char8 as B
+import qualified Data.ByteString.Char8 as B
 
 main :: IO ()
 main = do
