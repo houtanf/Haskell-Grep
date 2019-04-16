@@ -1,2 +1,2 @@
 # Haskell-Grep
-A Haskell Implementation of Grep
+My Haskell Implementation of Grep
