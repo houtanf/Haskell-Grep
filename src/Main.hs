@@ -6,14 +6,18 @@ import Reading.ReadFiles (fileLines)
 import Parsing.ReadUtils (appendName)
 import Parsing.Match (matchLines)
 
+import Control.Monad (liftM)
 import System.Environment (getArgs)
 import qualified Data.ByteString.Lazy.Char8 as B
 
 main :: IO ()
 main = do
         (pattern : paths) <- getArgs
+        --let fileNames = getFiles True paths
+        --fileData <- (liftM fileLines) $ fileNames
         fileNames <- getFiles True paths
-        let fileData = zip fileNames $ fileLines fileNames
+        mapM_ putStrLn fileNames
+        let fileData = fileLines fileNames
         mapM_ (uncurry $ eval pattern) fileData
 
 
