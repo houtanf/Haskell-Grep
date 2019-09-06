@@ -8,7 +8,7 @@ import System.Directory (doesDirectoryExist,
 
 import Streaming  
 import qualified Streaming.Prelude as S
-import Streaming.Prelude (each, next, yield)
+import Streaming.Prelude (each, yield)
 
 
 type Recursive = Bool
