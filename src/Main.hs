@@ -9,22 +9,20 @@ import Parsing.Match (matchLines)
 import Control.Monad (liftM)
 import System.Environment (getArgs)
 import qualified Data.ByteString.Lazy.Char8 as B
+import qualified Streaming.Prelude as S
 
 main :: IO ()
 main = do
         (pattern : paths) <- getArgs
-        --let fileNames = getFiles True paths
-        --fileData <- (liftM fileLines) $ fileNames
-        fileNames <- getFiles True paths
-        mapM_ putStrLn fileNames
+        let fileNames = getFiles True paths
         let fileData = fileLines fileNames
-        mapM_ (uncurry $ eval pattern) fileData
+        S.mapM_ (uncurry $ eval pattern) fileData
 
 
 eval :: String -> FilePath -> IO [B.ByteString] -> IO ()
 eval pattern filename file = do
                               text <- file
                               let result = matchLines pattern text
-                              let output = appendName filename $ result
+                              let output = appendName filename result
                               mapM_ B.putStrLn output
             
