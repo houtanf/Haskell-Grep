@@ -6,6 +6,7 @@ My Haskell Implementation of the Grep CLI tool
 * Implement Lazy ByteStrings for file reading  [DONE]
 * Implement IO Streaming for efficient directory searching [DONE]
 
+
 ## TODO
 * Implement reading from STDIO when files are not provided
 * Implement Command Line Flags
