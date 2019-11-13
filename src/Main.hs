@@ -14,7 +14,6 @@ import Commands.Arguments (
                           )
 
 import Options.Applicative
-import Control.Monad (liftM)
 import qualified Data.ByteString.Lazy.Char8 as B
 import qualified Streaming.Prelude as S
 
