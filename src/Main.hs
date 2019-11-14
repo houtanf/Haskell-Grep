@@ -1,12 +1,12 @@
 module Main where
 
-import Reading.GetFiles (getFiles)
-import Reading.ReadFiles (fileLines)
+import Reading.Files.GetFiles (getFiles)
+import Reading.Files.ReadFiles (fileLines)
 
 import Parsing.ReadUtils (appendName)
 import Parsing.Match (matchLines)
 
-import Commands.Arguments (commandParser, CmdOptions(..) )
+import Commands.Arguments ( commandParser, CmdOptions(..) )
 
 import Options.Applicative
 import qualified Data.ByteString.Lazy.Char8 as B
@@ -27,7 +27,7 @@ parseOptions (CmdOption pattern paths recurse _)
 
 evalFiles :: String -> FilePath -> IO [B.ByteString] -> IO ()
 evalFiles pattern filename file = file >>= mapM_ B.putStrLn
-                                      . appendName filename
-                                      . matchLines pattern
+                                           . appendName filename
+                                           . matchLines pattern
                               
             
