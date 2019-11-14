@@ -1,4 +1,4 @@
-module Reading.GetFiles where
+module Reading.Files.GetFiles where
 
 import Control.Monad
 import System.FilePath ((</>))

@@ -3,7 +3,7 @@ module Commands.Arguments where
 import Options.Applicative
 import Data.Semigroup ((<>))
 
-data CmdOptions = CmdOptions {
+data CmdOptions = CmdOption {
     spattern   :: String
   , source    :: [String]
   , recursive :: Bool
@@ -20,7 +20,7 @@ commandParser = info ( commands <**> helper ) (
 
 
 commands :: Parser CmdOptions
-commands = CmdOptions
+commands = CmdOption
             <$> patternArg
             <*> sourceArg
             <*> recursiveFlag

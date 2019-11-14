@@ -1,4 +1,4 @@
-module Reading.ReadFiles where
+module Reading.Files.ReadFiles where
 
 
 import qualified Data.ByteString.Lazy.Char8 as L
