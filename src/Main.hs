@@ -6,33 +6,28 @@ import Reading.ReadFiles (fileLines)
 import Parsing.ReadUtils (appendName)
 import Parsing.Match (matchLines)
 
-import Commands.Arguments (
-                            commandParser
-                            , spattern
-                            , source
-                            , recursive
-                          )
+import Commands.Arguments (commandParser, CmdOptions(..) )
 
 import Options.Applicative
 import qualified Data.ByteString.Lazy.Char8 as B
 import qualified Streaming.Prelude as S
 
 main :: IO ()
-main = do
-        args <- execParser commandParser
-        let pattern = spattern args
-        let paths = source args
-        let recurse = recursive args
-
-        let fileNames = getFiles recurse paths
-        let fileData = fileLines fileNames
-        S.mapM_ (uncurry $ eval pattern) fileData
+main = parseOptions =<< execParser commandParser
 
 
-eval :: String -> FilePath -> IO [B.ByteString] -> IO ()
-eval pattern filename file = do
-                              text <- file
-                              let result = matchLines pattern text
-                              let output = appendName filename result
-                              mapM_ B.putStrLn output
+parseOptions :: CmdOptions -> IO ()
+parseOptions (CmdOption pattern paths recurse _)
+  | null paths = undefined
+  | otherwise = S.mapM_ (uncurry $ evalFiles pattern) 
+                . fileLines 
+                . getFiles recurse $ paths
+                
+
+
+evalFiles :: String -> FilePath -> IO [B.ByteString] -> IO ()
+evalFiles pattern filename file = file >>= mapM_ B.putStrLn
+                                      . appendName filename
+                                      . matchLines pattern
+                              
             
