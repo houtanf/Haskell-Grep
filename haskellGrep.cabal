@@ -16,7 +16,7 @@ name:                haskellGrep
 version:             0.1.0.1
 
 -- A short (one-line) description of the package.
-synopsis:            A Haskell Implementation of Grep
+synopsis:            A Haskell Implementation of eGrep
 
 -- A longer description of the package.
 -- description:
