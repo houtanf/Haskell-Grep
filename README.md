@@ -9,8 +9,9 @@ This is a project used to learn Haskell and implement interesting design techniq
 ## Table of Contents
 
 <!-- TOC -->
+
  - [Supported Flags](#flags)
- - [Timing Comparisons](#timing)
+ - [Timing & Output Comparisons](#comp)
  - [Interesting Design Features](#features)
  - [Benefits over egrep?](#benefits)
  - [Tasks](#tasks)
@@ -26,7 +27,7 @@ Currently the implemented command line options are:
   - [-h | --help]
     - Display usage and options
 
-## Timing Comparisons <a name="timing"></a>
+## Timing & Output Comparisons <a name="comp"></a>
 
 The timings and outputs of both haskellGrep and egrep when run recursively on this projects `src/` directory are displayed below:
 
@@ -77,6 +78,6 @@ This implementation only implements some of egreps core functionality and doesn'
 * Add Unit Tests
 
 
-[file-example-gif]: readme_resources/haskellGrep_file_example.gif
-[egrep-timing-img]: readme_resources/egrep_src_timing.png
-[haskell-timing-img]: readme_resources/haskellGrep_src_timing.png
+[file-example-gif]: .readme_resources/haskellGrep_file_example.gif
+[egrep-timing-img]: .readme_resources/egrep_src_timing.png
+[haskell-timing-img]: .readme_resources/haskellGrep_src_timing.png
