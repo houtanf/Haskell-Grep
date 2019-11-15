@@ -5,6 +5,7 @@ This is a project used to learn Haskell and implement interesting design techniq
 
 
 ![][file-example-gif]
+![][pipe-example-gif]
 
 ## Table of Contents
 
@@ -79,5 +80,6 @@ This implementation only implements some of egreps core functionality and doesn'
 
 
 [file-example-gif]: .readme_resources/haskellGrep_file_example.gif
+[pipe-example-gif]: .readme_resources/haskellGrep_pipe_example.gif
 [egrep-timing-img]: .readme_resources/egrep_src_timing.png
 [haskell-timing-img]: .readme_resources/haskellGrep_src_timing.png
