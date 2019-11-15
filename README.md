@@ -4,7 +4,7 @@ My Haskell sub-implementation of the egrep CLI tool.
 This is a project used to learn Haskell and implement interesting design techniques with lazy IO. It's not meant to replace egrep.
 
 
-![](file-example-gif)
+![][file-example-gif]
 
 ## Table of Contents
 
@@ -30,8 +30,8 @@ Currently the implemented command line options are:
 
 The timings and outputs of both haskellGrep and egrep when run recursively on this projects `src/` directory are displayed below:
 
-![](haskell-timing-img)
-![](egrep-timing-img)
+![][haskell-timing-img]
+![][egrep-timing-img]
 
 However, the disparity in runtime grows much larger when both programs are executed recusively from my systems home/user directory:
 
