@@ -43,6 +43,14 @@ However, the disparity in runtime grows much larger when both programs are execu
 egrep 'hello|world' -r ~/ --color  3.99s user 1.42s system 86% cpu 6.233 total
 ```
 
+When piping in the output of `ls -aR ~/` into both programs, the speed gap is much closer:
+
+```sh
+./haskellGrep .cpp  2.16s user 0.02s system 99% cpu 2.181 total
+
+egrep .cpp --color  0.16s user 0.07s system 1% cpu 16.463 total
+```
+
 ## Interesting Design Features <a name="features"></a>
   - Uses Lazy IO Streaming for directory searches
   - Uses Lazy ByteStrings for file and stdin reading
