@@ -84,6 +84,7 @@ This implementation only implements some of egreps core functionality and doesn'
 * Implement reading from STDIN when files are not provided [DONE]
 
 ### TODO
+* Add more command line options
 * Add Unit Tests
 
 
