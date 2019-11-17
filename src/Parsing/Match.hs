@@ -1,7 +1,6 @@
 module Parsing.Match where
 
 import Text.Regex.Posix ((=~))
-import Data.List (foldl')
 import qualified Data.ByteString.Lazy.Char8 as B
 
 
